@@ -5,17 +5,17 @@ from bs4 import BeautifulSoup
 st.title("Mathematics Applications")
 st.sidebar.checkbox("Merchant's and USA rules")
 
-interest_rate = st.number_input("How many partial payments do you have" , 0.0)
+interest_rate = st.number_input("interest rate" , 0.0)
 due_date = st.date_input("Due date" )
-date_taking = st.date_input("Due date" )
+date_taking = st.date_input("date of taking" )
 amount = st.number_input("Amount")
 num = st.number_input("How many partial payments do you have" , 1)
 
 
 html = [] 
 for i in range(int(num)):
-    date = st.date_input("Date of partial payment"  , key=i)
-    val = st.number_input("amount of parital payment" , 1.0 , key=i)
+    date = st.date_input("Date of partial payment for payment number {}".format(i+1)  , key=i+1)
+    val = st.number_input("amount of parital payment  for payment number {}".format(i+1) , 1.0 , key=i+1)
     html.append("""<p class="val-inputs" >{val} </p>
                    <p class="date-inputs" >{date} </p>
     """.format(val=val , date=date))
